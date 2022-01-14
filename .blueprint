@@ -1,0 +1,7 @@
+created:
+    - database/factories/IsoFactory.php
+    - database/migrations/2022_01_14_043519_create_isos_table.php
+    - app/Models/Iso.php
+models:
+    User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
+    Iso: { business_name: 'string:400', contact_name: 'string:400', contact_number: 'string:20', emails: longtext }

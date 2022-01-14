@@ -1,0 +1,9 @@
+models:
+  Iso:
+    business_name: string:400
+    contact_name: string:400
+    contact_number: string:20
+    emails: longtext
+
+controllers:
+  # ...
