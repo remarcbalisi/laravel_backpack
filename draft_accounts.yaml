@@ -1,0 +1,9 @@
+models:
+  Account:
+    business_name: string:400
+    owners: longtext
+    relationships:
+      hasOne: Sic
+
+controllers:
+  # ...

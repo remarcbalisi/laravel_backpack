@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sic extends Model
+class Account extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
@@ -16,8 +16,9 @@ class Sic extends Model
      * @var array
      */
     protected $fillable = [
-        'code',
-        'descrition',
+        'business_name',
+        'owners',
+        'sic_id'
     ];
 
     /**
@@ -29,8 +30,8 @@ class Sic extends Model
         'id' => 'integer',
     ];
 
-    public function accounts()
+    public function sic()
     {
-        return $this->belongsToMany(Account::class);
+        return $this->belongsTo(Sic::class);
     }
 }
