@@ -13,3 +13,5 @@
 
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('setting') }}'><i class='nav-icon la la-cog'></i> <span>Settings</span></a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('iso') }}'><i class='nav-icon la la-question'></i> ISO's</a></li>
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('sic') }}'><i class='nav-icon la la-question'></i> Sics</a></li>

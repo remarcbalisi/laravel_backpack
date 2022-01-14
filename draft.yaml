@@ -5,5 +5,9 @@ models:
     contact_number: string:20
     emails: longtext
 
+  Sic:
+    code: integer
+    descrition: longtext
+
 controllers:
   # ...
