@@ -68,6 +68,18 @@ class DealCrudController extends CrudController
              $this->crud->addClause('where', 'sales_stage', $value);
         });
 
+        $this->crud->addFilter([
+            'type'  => 'date_range',
+            'name'  => 'submission_date',
+            'label' => 'Submission Date'
+        ],
+            false,
+            function ($value) { // if the filter is active, apply these constraints
+                 $dates = json_decode($value);
+                 $this->crud->addClause('where', 'submission_date', '>=', $dates->from);
+                 $this->crud->addClause('where', 'submission_date', '<=', $dates->to . ' 23:59:59');
+            });
+
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
