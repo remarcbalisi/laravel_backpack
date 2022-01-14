@@ -42,6 +42,18 @@ class DealCrudController extends CrudController
         CRUD::column('submission_date');
         CRUD::column('deal_name');
         CRUD::column('sales_stage');
+        CRUD::column('iso');
+        CRUD::column('account');
+
+        CRUD::addFilter([
+            'name'  => 'iso',
+            'type'  => 'select2',
+            'label' => 'ISO'
+        ], function() {
+            return \App\Models\Iso::all()->pluck('business_name', 'id')->toArray();
+        }, function($value) { // if the filter is active
+            $this->crud->addClause('where', 'iso_id', $value);
+        });
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
