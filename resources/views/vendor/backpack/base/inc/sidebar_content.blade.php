@@ -16,3 +16,4 @@
 
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('sic') }}'><i class='nav-icon la la-question'></i> Sics</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('account') }}'><i class='nav-icon la la-question'></i> Accounts</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('deal') }}'><i class='nav-icon la la-question'></i> Deals</a></li>

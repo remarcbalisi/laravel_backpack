@@ -1,0 +1,10 @@
+models:
+  Deal:
+    submission_date: date
+    deal_name: string:400
+    sales_stage: string:400
+    relationships:
+      belongsTo: Account, Iso
+
+controllers:
+  # ...

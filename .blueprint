@@ -1,9 +1,10 @@
 created:
-    - database/factories/AccountFactory.php
-    - database/migrations/2022_01_14_132004_create_accounts_table.php
-    - app/Models/Account.php
+    - database/factories/DealFactory.php
+    - database/migrations/2022_01_14_141816_create_deals_table.php
+    - app/Models/Deal.php
 models:
     Iso: { business_name: 'string:400', contact_name: 'string:400', contact_number: 'string:20', emails: text }
     Sic: { code: integer, descrition: text }
     User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
     Account: { business_name: 'string:400', owners: longtext, relationships: { hasOne: Sic } }
+    Deal: { submission_date: date, deal_name: 'string:400', sales_stage: 'string:400', relationships: { belongsTo: 'Account, Iso' } }
