@@ -55,6 +55,19 @@ class DealCrudController extends CrudController
             $this->crud->addClause('where', 'iso_id', $value);
         });
 
+        CRUD::addFilter([
+            'name'  => 'sales_stage',
+            'type'  => 'dropdown',
+            'label' => 'Sales Stage'
+        ], [
+            'new_deal' => 'New Deal',
+            'missing_info' => 'Missing Info',
+            'deal_won' => 'Deal Won',
+            'deal_lost' => 'Deal Lost',
+        ], function($value) { // if the filter is active
+             $this->crud->addClause('where', 'sales_stage', $value);
+        });
+
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
