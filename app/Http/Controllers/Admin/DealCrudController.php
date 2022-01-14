@@ -40,15 +40,29 @@ class DealCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('submission_date');
-        CRUD::column('deal_name');
+        CRUD::addColumn([
+            'name' => 'deal_name',
+            'label' => 'Deal Name',
+            'orderable' => false
+        ]);
         CRUD::column('sales_stage');
         CRUD::column('iso');
-        CRUD::column('account');
+        CRUD::addColumn([
+            'name' => 'account',
+            'label' => 'Account',
+            'type' => 'relationship',
+            'orderable' => true,
+            'orderLogic' => function ($query, $column, $columnDirection) {
+                return $query->leftJoin('accounts', 'accounts.id', '=', 'deals.account_id')
+                    ->orderBy('accounts.business_name', $columnDirection)->select('deals.*');
+            }
+        ]);
 
         CRUD::addFilter([
             'name'  => 'iso',
             'type'  => 'select2',
-            'label' => 'ISO'
+            'label' => 'ISO',
+            'orderable' => false,
         ], function() {
             return \App\Models\Iso::all()->pluck('business_name', 'id')->toArray();
         }, function($value) { // if the filter is active
